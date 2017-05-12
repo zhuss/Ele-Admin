@@ -1,5 +1,7 @@
 # 基于ElementUI的 后台模板Demo
 
+项目预览地址 [https://zhuss.github.io/Ele-Admin/dist/#/login](https://zhuss.github.io/Ele-Admin/dist/#/login)
+
 ## Build Setup
 
 ``` bash

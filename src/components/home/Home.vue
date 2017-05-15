@@ -6,17 +6,17 @@
         <img class="head-icon" src="../../assets/img/ingtu.png" />
         <p class="user-name overflow">ingtube.com</p>
       </div>
-      <el-menu default-active="1-1" :unique-opened="true" theme="dark">
+      <el-menu :default-active="router" :router="true" :unique-opened="true" theme="dark">
         <el-submenu index="1">
           <template slot="title"><i class="el-icon-picture"></i>主要业务</template>
-          <el-menu-item index="1-1">视频管理</el-menu-item>
-          <el-menu-item index="1-2">主题管理</el-menu-item>
+          <el-menu-item index="/video">视频管理</el-menu-item>
+          <el-menu-item index="/topic">主题管理</el-menu-item>
         </el-submenu>
-        <el-submenu index="2">
+        <!-- <el-submenu index="2">
           <template slot="title"><i class="el-icon-date"></i>运营业务</template>
-          <el-menu-item index="2-1">每日精选</el-menu-item>
-          <el-menu-item index="2-2">日签管理</el-menu-item>
-        </el-submenu>
+          <el-menu-item index="/daily">每日精选</el-menu-item>
+          <el-menu-item index="/sign">日签管理</el-menu-item>
+        </el-submenu> -->
       </el-menu>
     </div>
     <!--left end-->
@@ -46,14 +46,28 @@
     <!--right end-->
     <!--userinfo-->
     <el-dialog v-model="userInfo.dialog" title="个人信息">
+      <div class="user-info">
+        <p>账号:zhuss</p>
+        <p>密码:zhuss</p>
+      </div>
     </el-dialog>
     <!--userinfo end-->
   </div>
 </template>
 <script type="text/javascript">
 export default {
-  data() {
+  beforeRouteEnter(to, from, next) {
+      next(function(vm) {
+        if (to.path == '/') {
+          vm.router = '/video';
+        } else {
+          vm.router = to.path;
+        }
+      });
+    },
+    data() {
       return {
+        router: '/video',
         user: {
           headIcon: 'http://cdn.bunny-tech.com/promotion/static/act-imags/icon.png',
           userName: 'zhuss'
@@ -63,6 +77,7 @@ export default {
         }
       }
     },
+    mounted() {},
     methods: {
       handleCommand(command) {
         if (command == 'info') {
@@ -158,5 +173,11 @@ export default {
   box-sizing: border-box;
   top: 0;
   position: absolute;
+}
+
+.user-info {
+  p {
+    padding: 10px 0;
+  }
 }
 </style>

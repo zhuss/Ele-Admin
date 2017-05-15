@@ -80,17 +80,4 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-.top {
-  padding-top: 20px;
-  padding-left: 20px;
-  background: #EFF2F7;
-}
-
-.table {
-  width: 100%;
-  .page {
-    padding: 10px;
-    text-align: center;
-  }
-}
 </style>

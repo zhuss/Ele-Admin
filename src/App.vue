@@ -8,7 +8,7 @@ export default {
   name: 'app'
 }
 </script>
-<style type="text/css">
+<style lang="less">
 /*全局样式*/
 
 body,
@@ -36,6 +36,20 @@ html {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.top {
+  padding-top: 20px;
+  padding-left: 20px;
+  background: #EFF2F7;
+}
+
+.table {
+  width: 100%;
+  .page {
+    padding: 10px;
+    text-align: center;
+  }
 }
 </style>
 <style lang="less" scoped>
